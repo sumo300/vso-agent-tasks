@@ -19,7 +19,7 @@ function Install-DbUpAndGetDllPath {
     if (-not (Test-Path $dllFilePattern)) {
         $oldLocation = Get-Location
         cd $workingDir
-        wget http://nuget.org/nuget.exe -OutFile nuget.exe -UseBasicParsing
+        wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile nuget.exe -UseBasicParsing
         .\nuget.exe install dbup | Out-Null
         rm nuget.exe
         cd $oldLocation
