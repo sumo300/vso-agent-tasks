@@ -30,6 +30,10 @@ function Install-DbUpAndGetDllPath {
         
         & $nuget install dbup | Out-Null
 
+        if (Test-Path .\nuget.exe) {
+            rm .\nuget.exe
+        }
+
         cd $oldLocation
     }
     return Resolve-Path $dllFilePattern | select -ExpandProperty Path -First 1
